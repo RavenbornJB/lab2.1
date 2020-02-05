@@ -1,9 +1,5 @@
-def find_automorphs():
-    automorphs = []
-    for num in range(10**5, 10**6):
-        if (num**2) % (10**6) == num:
-            automorphs.append(num)
-    return automorphs
+def find_automorph(num):
+    return (num**2) % (10**6) == num
 
 
 def find_products(lst):
@@ -34,7 +30,7 @@ def divisors(num):
 
 
 if __name__ == "__main__":
-    lst1 = find_automorphs()
+    lst1 = list(filter(find_automorph, range(10**5, 10**6)))
     lst2 = find_products(lst1)
     top = max(lst2)
     print(top, divisors(top))
