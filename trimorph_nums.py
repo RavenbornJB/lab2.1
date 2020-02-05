@@ -1,15 +1,18 @@
 import math
 
 
-def find_trimorphs():
-    trimorphs = []
-    for num in range(10**4, 10**5):
-        if (num**3) % (10**5) == num:
-            trimorphs.append(num)
-    return trimorphs
+def find_trimorph(num):
+    """ int -> bool
+    Determines if a number is a trimorph number.
+    """
+    return (num**3) % (10**5) == num
 
 
 def find_products(lst):
+    """ list -> list
+    Returns a list of all possible products of numbers in a list
+    except for products of identical numbers (a.k.a squares)
+    """
     products = []
     for num1 in lst:
         for num2 in lst:
@@ -20,11 +23,19 @@ def find_products(lst):
 
 
 def is_ascending(num):
+    """ int -> bool
+    Determines if a number's digits are in an ascending order.
+    """
     digits = list(str(num))
     return digits == sorted(digits)
 
 
 def square_sum(num):
+    """ int -> list
+    Returns a list of tuples which contain two numbers each.
+    The two numbers in each tuple, when squared and added together,
+    equate to the input number.
+    """
     components = []
     squares = {i**2: i for i in range(int(math.sqrt(num)) + 1)}
     for square in squares:
@@ -34,7 +45,7 @@ def square_sum(num):
 
 
 if __name__ == "__main__":
-    lst1 = find_trimorphs()
+    lst1 = list(filter(find_trimorph, range(10**4, 10**5)))
     lst2 = find_products(lst1)
     top = max(lst2)
     lst3 = square_sum(top)

@@ -1,8 +1,15 @@
 def find_automorph(num):
+    """ int -> bool
+    Determines if a number is an automorph number
+    """
     return (num**2) % (10**6) == num
 
 
 def find_products(lst):
+    """ list -> list
+    Returns a list of all possible products of numbers in a list
+    except for products of identical numbers (a.k.a squares)
+    """
     products = set()
     for num1 in lst:
         for num2 in lst:
@@ -13,6 +20,9 @@ def find_products(lst):
 
 
 def is_lischrel(num):
+    """ int -> bool
+    Determines if a number is a Lischrel number
+    """
     rev = int(str(num)[::-1])
     num_sum = num + rev
     if not str(num_sum) == str(num_sum)[::-1]:
@@ -21,6 +31,11 @@ def is_lischrel(num):
 
 
 def divisors(num):
+    """ int -> list
+    Returns a list of tuples which contain two numbers each.
+    The two numbers in each tuple, when multiplied together,
+    equate to the input number.
+    """
     divs = set()
     for i in range(1, int(num**0.5) + 1):
         j = num / i

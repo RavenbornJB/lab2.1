@@ -2,6 +2,9 @@ import math
 
 
 def find_caprecar(num):
+    """ int -> bool
+    Determines if a number is Kaprekar (by definition from the test)
+    """
     square = str(num ** 2)
     for i in range(1, len(square)):
         left, right = int(square[:i]), square[i:]
@@ -14,6 +17,10 @@ def find_caprecar(num):
 
 
 def find_products(lst):
+    """ list -> list
+    Returns a list of all possible products of numbers in a list
+    except for products of identical numbers (a.k.a squares)
+    """
     products = set()
     for num1 in lst:
         for num2 in lst:
@@ -24,11 +31,19 @@ def find_products(lst):
 
 
 def is_palindrome(num):
+    """ int -> bool
+    Determines if a number is a palindrome
+    """
     num = str(num)
     return num == num[::-1]
 
 
 def square_sum(num):
+    """ int -> list
+    Returns a list of tuples which contain two numbers each.
+    The two numbers in each tuple, when squared and added together,
+    equate to the input number.
+    """
     components = []
     squares = {i**2: i for i in range(int(math.sqrt(num)) + 1)}
     for square in squares:
@@ -39,7 +54,6 @@ def square_sum(num):
 
 if __name__ == "__main__":
     lst1 = list(filter(find_caprecar, range(10**3, 10**4)))
-    print(lst1)
     lst2 = find_products(lst1)
     top = min(lst2)
     print(top, square_sum(top))
