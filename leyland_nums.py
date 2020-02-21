@@ -1,10 +1,13 @@
+import math
+
+
 def find_leyland():
     """ None -> list
     Returns a list of all leyland numbers between 10000 and 100000
     """
     leylands = []
-    for i in range(2, int(10**2.5) + 1):
-        for j in range(i, int(10**2.5) + 1):
+    for i in range(2, int(math.log2(100000))):
+        for j in range(2, int(math.log2(100000))):
             num = i**j + j**i
             if 10**4 <= num < 10**5:
                 leylands.append(num)
