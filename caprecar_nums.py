@@ -52,8 +52,8 @@ def square_sum(num):
     return components
 
 
-if __name__ == "__main__":
+def caprecar_process():
     lst1 = list(filter(find_caprecar, range(10**3, 10**4)))
     lst2 = find_products(lst1)
     top = min(lst2)
-    print(top, square_sum(top))
+    return top, square_sum(top)

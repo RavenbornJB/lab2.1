@@ -44,9 +44,8 @@ def square_sum(num):
     return components
 
 
-if __name__ == "__main__":
+def trimorph_process():
     lst1 = list(filter(find_trimorph, range(10**4, 10**5)))
     lst2 = find_products(lst1)
     top = max(lst2)
-    lst3 = square_sum(top)
-    print(top, lst3)
+    return top, square_sum(top)

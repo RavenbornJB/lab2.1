@@ -44,8 +44,8 @@ def divisors(num):
     return divs
 
 
-if __name__ == "__main__":
+def lischrel_process():
     lst1 = list(filter(find_automorph, range(10**5, 10**6)))
     lst2 = find_products(lst1)
     top = max(lst2)
-    print(top, divisors(top))
+    return top, divisors(top)
